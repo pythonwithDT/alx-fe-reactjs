@@ -1,9 +1,10 @@
-// src/UserContext.jsx
 import React, { createContext, useContext } from 'react';
 
+// Create a Context
 const UserContext = createContext();
 
-export function UserProvider({ value, children }) {
+// Create a Provider Component
+export function UserProvider({ children, value }) {
   return (
     <UserContext.Provider value={value}>
       {children}
@@ -11,6 +12,7 @@ export function UserProvider({ value, children }) {
   );
 }
 
+// Create a custom hook for using the context
 export function useUserContext() {
   return useContext(UserContext);
 }
