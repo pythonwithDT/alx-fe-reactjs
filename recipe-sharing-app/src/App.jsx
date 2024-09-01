@@ -4,17 +4,18 @@ import SearchBar from './components/SearchBar';
 import RecipeList from './components/RecipeList';
 import { useRecipeStore } from '../components/recipeStore';
 import RecipeDetails from './components/RecipeDetails';
-import RecipeDetails from './components/RecipeDetails';  // Example component
+import RecipeDetails from './components/RecipeDetails';  
+import AddRecipeForm from './components/AddRecipeForm';
 
 function App() {
   return (
     <Router>
       <div>
-        <h1>Recipe Sharing App</h1>
         <SearchBar />
         <Routes>
           <Route path="/" element={<RecipeList />} />
-          <Route path="/recipe/:id" element={<RecipeDetails />} />  // Example route
+          <Route path="/recipes/:id" element={<RecipeDetails />} />
+          <Route path="/add-recipe" element={<AddRecipeForm />} /> {/* Add this route */}
         </Routes>
       </div>
     </Router>
