@@ -1,22 +1,20 @@
 import React, { useEffect } from 'react';
-import { useRecipeStore } from './recipeStore';
+import useRecipeStore from './recipeStore'; // Import without curly braces
 
 const RecommendationsList = () => {
-  const generateRecommendations = useRecipeStore(state => state.generateRecommendations);
-  const recommendations = useRecipeStore(state => state.recommendations);
+  const { filteredRecipes, setSearchTerm } = useRecipeStore();
 
   useEffect(() => {
-    generateRecommendations();
-  }, [generateRecommendations]);
+    // Example effect
+    setSearchTerm(''); // Setting search term to an empty string
+  }, [setSearchTerm]);
 
   return (
     <div>
-      <h2>Recommended for You</h2>
-      {recommendations.map(recipe => (
-        <div key={recipe.id}>
-          <h3>{recipe.title}</h3>
-          <p>{recipe.description}</p>
-        </div>
+      <h2>Recommended Recipes</h2>
+      {/* Render filtered recipes */}
+      {filteredRecipes.map((recipe) => (
+        <div key={recipe.id}>{recipe.title}</div>
       ))}
     </div>
   );

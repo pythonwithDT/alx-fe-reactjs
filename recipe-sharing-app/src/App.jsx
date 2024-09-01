@@ -5,7 +5,7 @@ import AddRecipeForm from './components/AddRecipeForm';
 import FavoritesList from './components/FavoritesList';
 import RecipeDetails from './components/RecipeDetails';
 import RecipeList from './components/RecipeList';
-import useRecipeStore from '../components/recipeStore'
+import useRecipeStore from './recipeStore'
 import RecommendationsList from './components/RecommendationsList';
 import SearchBar from './components/SearchBar';
 
