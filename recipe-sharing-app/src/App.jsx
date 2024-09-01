@@ -2,8 +2,8 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import SearchBar from './components/SearchBar';
 import RecipeList from './components/RecipeList';
-import { useRecipeStore } from '../components/recipeStore';
-import RecipeDetails from './components/RecipeDetails';
+import useRecipeStore from './components/recipeStore';
+
 import RecipeDetails from './components/RecipeDetails';  
 import AddRecipeForm from './components/AddRecipeForm';
 
