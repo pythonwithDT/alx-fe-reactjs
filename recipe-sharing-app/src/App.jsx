@@ -1,12 +1,13 @@
+
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import SearchBar from './components/SearchBar';
-import RecipeList from './components/RecipeList';
-import RecipeDetails from './components/RecipeDetails';  
 import AddRecipeForm from './components/AddRecipeForm';
-import useRecipeStore from '../recipeStore';
-import FavoritesList from './FavoritesList';
-import RecommendationsList from './RecommendationsList';
+import FavoritesList from './components/FavoritesList';
+import RecipeDetails from './components/RecipeDetails';
+import RecipeList from './components/RecipeList';
+import useRecipeStore from '../components/recipeStore'
+import RecommendationsList from './components/RecommendationsList';
+import SearchBar from './components/SearchBar';
 
 function App() {
   return (
