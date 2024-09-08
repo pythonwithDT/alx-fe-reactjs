@@ -1,7 +1,9 @@
-import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import Home from './pages/Home';
 import Profile from './pages/Profile';
+import ProtectedRoute from './components/ProtectedRoute';
+
+const isAuthenticated = false; // Mock authentication status
 
 const App = () => {
   return (
@@ -12,8 +14,15 @@ const App = () => {
       </nav>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/profile/*" element={<Profile />} />
-        <Route path="/post/:postId" element={<BlogPost />} />
+        {/* Wrap the Profile route with the ProtectedRoute component */}
+        <Route
+          path="/profile/*"
+          element={
+            <ProtectedRoute isAuthenticated={isAuthenticated}>
+              <Profile />
+            </ProtectedRoute>
+          }
+        />
       </Routes>
     </Router>
   );
