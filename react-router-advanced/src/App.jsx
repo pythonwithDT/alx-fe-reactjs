@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
 import Profile from './pages/Profile';
+import BlogPost from './pages/BlogPost'; // Import BlogPost component
 import ProtectedRoute from './components/ProtectedRoute';
 
 const isAuthenticated = false; // Example authentication status
@@ -15,7 +16,7 @@ const App = () => {
             <Profile />
           </ProtectedRoute>
         } />
-        {/* Other routes */}
+        <Route path="/blog/:id" element={<BlogPost />} /> {/* Add dynamic route for BlogPost */}
       </Routes>
     </Router>
   );
