@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import useRecipeStore from './recipeStore'; // Import without curly braces
 
 const RecommendationsList = () => {
