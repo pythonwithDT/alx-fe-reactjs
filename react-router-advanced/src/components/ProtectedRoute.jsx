@@ -1,14 +1,10 @@
-import PropTypes from 'prop-types';
 import { Navigate } from 'react-router-dom';
+import { useAuth } from '../contexts/AuthContext'; // Import useAuth hook
 
-const ProtectedRoute = ({ isAuthenticated, children }) => {
+const ProtectedRoute = ({ children }) => {
+  const { isAuthenticated } = useAuth(); // Use the hook to get authentication status
+
   return isAuthenticated ? children : <Navigate to="/" />;
-};
-
-// Define prop types for the ProtectedRoute component
-ProtectedRoute.propTypes = {
-  isAuthenticated: PropTypes.bool.isRequired,
-  children: PropTypes.node.isRequired,
 };
 
 export default ProtectedRoute;
