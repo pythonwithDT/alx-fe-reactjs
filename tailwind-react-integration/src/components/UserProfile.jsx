@@ -3,7 +3,7 @@ import React from 'react';
 function UserProfile() {
   return (
     <>
-      <div className="user-profile bg-gray-100 p-4 sm:p-8 max-w-xs sm:max-w-sm mx-auto my-20 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 ease-in-out">
+      <div className="user-profile bg-gray-100 p-4 sm:p-8 max-w-xs sm:max-w-sm md:max-w-sm mx-auto my-20 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 ease-in-out">
         <img
           src="https://via.placeholder.com/150"
           alt="User"
@@ -16,7 +16,7 @@ function UserProfile() {
           Developer at Example Co. Loves to write code and explore new technologies.
         </p>
       </div>
-      <div className="user-profile bg-gray-100 p-4 sm:p-4 md:p-8 max-w-xs sm:max-w-sm mx-auto my-20 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 ease-in-out">
+      <div className="user-profile bg-gray-100 p-4 sm:p-4 md:p-8 max-w-xs sm:max-w-sm md:max-w-sm mx-auto my-20 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 ease-in-out">
         {/* Content for the second user-profile div */}
       </div>
     </>
