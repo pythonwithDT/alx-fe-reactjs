@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
+import UserProfile from './components/UserProfile'; // Adjust the path based on where UserProfile component is located
 import reactLogo from './assets/react.svg';
 import viteLogo from './vite.svg'; // Assuming vite.svg is in the same directory as App.jsx
 import './App.css'; // Make sure App.css is in the same directory as App.jsx
-
-import UserProfile from './UserProfile'; // Adjust the path based on where UserProfile component is located
 
 function App() {
   const [count, setCount] = useState(0);
