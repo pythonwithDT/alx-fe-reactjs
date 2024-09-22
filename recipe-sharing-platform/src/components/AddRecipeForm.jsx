@@ -5,23 +5,40 @@ const AddRecipeForm = ({ onAddRecipe }) => {
   const [summary, setSummary] = useState('');
   const [image, setImage] = useState('');
   const [ingredients, setIngredients] = useState('');
-  const [steps, setSteps] = useState(''); // New state for steps
+  const [steps, setSteps] = useState('');
+  const [errors, setErrors] = useState({}); // New state for errors
+
+  const validate = () => {
+    const newErrors = {};
+    if (!title) newErrors.title = 'Title is required';
+    if (!summary) newErrors.summary = 'Summary is required';
+    if (!image) newErrors.image = 'Image URL is required';
+    if (!ingredients) newErrors.ingredients = 'Ingredients are required';
+    if (!steps) newErrors.steps = 'Steps are required';
+    return newErrors;
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    const validationErrors = validate();
+    if (Object.keys(validationErrors).length > 0) {
+      setErrors(validationErrors);
+      return;
+    }
     const newRecipe = {
       title,
       summary,
       image,
       ingredients: ingredients.split(',').map(ingredient => ingredient.trim()),
-      steps: steps.split('.').map(step => step.trim()) // Split steps by period
+      steps: steps.split('.').map(step => step.trim())
     };
     onAddRecipe(newRecipe);
     setTitle('');
     setSummary('');
     setImage('');
     setIngredients('');
-    setSteps(''); // Reset steps field
+    setSteps('');
+    setErrors({});
   };
 
   return (
@@ -35,6 +52,7 @@ const AddRecipeForm = ({ onAddRecipe }) => {
           onChange={(e) => setTitle(e.target.value)}
           className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
         />
+        {errors.title && <p className="text-red-500 text-xs italic">{errors.title}</p>}
       </div>
       <div className="mb-4">
         <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="summary">Summary</label>
@@ -44,6 +62,7 @@ const AddRecipeForm = ({ onAddRecipe }) => {
           onChange={(e) => setSummary(e.target.value)}
           className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
         />
+        {errors.summary && <p className="text-red-500 text-xs italic">{errors.summary}</p>}
       </div>
       <div className="mb-4">
         <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="image">Image URL</label>
@@ -54,6 +73,7 @@ const AddRecipeForm = ({ onAddRecipe }) => {
           onChange={(e) => setImage(e.target.value)}
           className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
         />
+        {errors.image && <p className="text-red-500 text-xs italic">{errors.image}</p>}
       </div>
       <div className="mb-4">
         <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="ingredients">Ingredients (comma separated)</label>
@@ -64,6 +84,7 @@ const AddRecipeForm = ({ onAddRecipe }) => {
           onChange={(e) => setIngredients(e.target.value)}
           className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
         />
+        {errors.ingredients && <p className="text-red-500 text-xs italic">{errors.ingredients}</p>}
       </div>
       <div className="mb-4">
         <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="steps">Steps (separated by periods)</label>
@@ -73,6 +94,7 @@ const AddRecipeForm = ({ onAddRecipe }) => {
           onChange={(e) => setSteps(e.target.value)}
           className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
         />
+        {errors.steps && <p className="text-red-500 text-xs italic">{errors.steps}</p>}
       </div>
       <div className="flex items-center justify-between">
         <button
