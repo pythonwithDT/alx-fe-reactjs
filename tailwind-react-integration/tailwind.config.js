@@ -1,5 +1,5 @@
 export default {
-  purge: ['./src/**/*.{js,jsx,ts,tsx}', './public/index.html'],
+  purge: ['./public/index.html', './src/**/*.{js,jsx,ts,tsx}'], // Add purge option
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {},
