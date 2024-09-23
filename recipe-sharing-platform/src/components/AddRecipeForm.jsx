@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import PropTypes from 'prop-types';
 
 const AddRecipeForm = ({ onAddRecipe }) => {
   const [title, setTitle] = useState('');
@@ -106,6 +107,10 @@ const AddRecipeForm = ({ onAddRecipe }) => {
       </div>
     </form>
   );
+};
+
+AddRecipeForm.propTypes = {
+  onAddRecipe: PropTypes.func.isRequired,
 };
 
 export default AddRecipeForm;
